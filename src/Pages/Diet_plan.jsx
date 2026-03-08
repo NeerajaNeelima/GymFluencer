@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { useLocation } from 'react-router-dom';
 import Navbar from '../Components/Navbar'
 import Footer from '../Components/Footer'
@@ -9,6 +9,12 @@ import Section19 from '../Components/Section19'
 const Diet_plan = () => {
     const location = useLocation();
   const { headerText, descriptionText } = location.state || {};
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }, []);
   return (
     <div>
 

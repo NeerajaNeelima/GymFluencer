@@ -15,43 +15,63 @@ import Section12 from '../Components/Section12.jsx';
 import Section13 from '../Components/Section13.jsx';
 import Section14 from '../Components/Section14.jsx';
 import Footer from '../Components/Footer';
+import { useLocation } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 const Home = () => {
-   
-   
+  const location = useLocation();
+   const navigate=useNavigate();
     const section3Ref = useRef(null);
     const section11Ref = useRef(null);
     const section14Ref = useRef(null);
     const section13Ref = useRef(null);
 
     const scrollToSection3 = () => {
-      console.log('Click')
+      console.log("Clicked")
+      navigate('/')
       if (section3Ref.current) {
         section3Ref.current.scrollIntoView({ behavior: 'smooth' });
       }
     };
     const scrollToSection11 = () => {
-      console.log('Click')
+      navigate('/')
       if (section11Ref.current) {
         section11Ref.current.scrollIntoView({ behavior: 'smooth' });
       }
     };
 
     const scrollToSection14 = () => {
-      console.log('Click')
+      navigate('/')
       if (section14Ref.current) {
         section14Ref.current.scrollIntoView({ behavior: 'smooth' });
       }
     };
     const scrollToSection13 = () => {
-      console.log('Click')
+      navigate('/')
       if (section13Ref.current) {
         section13Ref.current.scrollIntoView({ behavior: 'smooth' });
       }
     };
-  
-  
-   
+
+    useEffect(() => {
+
+      if (location.state?.scrollTo === "about") {
+        section3Ref.current?.scrollIntoView({ behavior: "smooth" });
+      }
     
+      if (location.state?.scrollTo === "benefits") {
+        section11Ref.current?.scrollIntoView({ behavior: "smooth" });
+      }
+    
+      if (location.state?.scrollTo === "blog") {
+        section13Ref.current?.scrollIntoView({ behavior: "smooth" });
+      }
+    
+      if (location.state?.scrollTo === "contact") {
+        section14Ref.current?.scrollIntoView({ behavior: "smooth" });
+      }
+    
+    }, [location]);
+   
     return (
       <div >
         <Navbar onAboutClick={scrollToSection3} onBenefitsClick={scrollToSection11} onConcat={scrollToSection14} onBlogClick={scrollToSection13}/>

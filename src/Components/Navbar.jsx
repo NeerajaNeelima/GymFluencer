@@ -28,13 +28,16 @@ const Navbar = ({ onAboutClick,onBenefitsClick,onConcat ,onBlogClick}) => {
           }
         });
       };
+      const goToSection = (section) => {
+        navigate('/', { state: { scrollTo: section } });
+      };
   return (
     <div className='flex justify-center items-center mx-auto rounded-full px-8  my-10 py-4 fixed bg-[#101211] opacity-95 border border-gray-600 left-0 right-0 w-max z-50 '>
 
         <div className='flex gap-12 items-center font-semibold' style={{ fontFamily: "'Jura', sans-serif" }}>
             <img src={logo} alt='' className='w-44 h-12'/>
             <div className='text-gray-500 text-2xl hover:text-red-600 cursor-pointer'onClick={()=>{navigate('/')}}>Home</div>
-            <div className='text-gray-500 text-2xl hover:text-red-600 cursor-pointer'onClick={onAboutClick}>About</div>
+            <div className='text-gray-500 text-2xl hover:text-red-600 cursor-pointer'onClick={() => goToSection("about")}>About</div>
             <div
             className="relative text-gray-500 text-2xl hover:text-red-600 cursor-pointer flex gap-2 items-center"
             onMouseEnter={() => setShowDropdown(true)}
@@ -46,7 +49,7 @@ const Navbar = ({ onAboutClick,onBenefitsClick,onConcat ,onBlogClick}) => {
 
             
                 {showDropdown && (
-                    <div className="absolute top-full left-0 mt-2 w-56 border border-gray-600  bg-[#18181a] flex flex-col rounded-md shadow-lg">
+                    <div className="absolute top-full left-0 mt-0 w-56 border border-gray-600  bg-[#18181a] flex flex-col rounded-md shadow-lg">
                     <div className="text-gray-500 hover:text-white text-xl px-4 py-3 cursor-pointer"  onClick={navigateToWorkout}>
                         Workout Plan
                     </div>
@@ -56,9 +59,9 @@ const Navbar = ({ onAboutClick,onBenefitsClick,onConcat ,onBlogClick}) => {
                     </div>
                 )}
             </div>
-            <div className='text-gray-500 text-2xl hover:text-red-600 cursor-pointer' onClick={onBenefitsClick}>Benifits</div>
-            <div className='text-gray-500 text-2xl hover:text-red-600 cursor-pointer' onClick={onBlogClick}>Blog</div>
-            <div className='text-gray-500 text-2xl hover:text-red-600 cursor-pointer' onClick={onConcat}>Contact</div>
+            <div className='text-gray-500 text-2xl hover:text-red-600 cursor-pointer' onClick={() => goToSection("benefits")}>Benifits</div>
+            <div className='text-gray-500 text-2xl hover:text-red-600 cursor-pointer' onClick={() => goToSection("blog")}>Blog</div>
+            <div className='text-gray-500 text-2xl hover:text-red-600 cursor-pointer'onClick={() => goToSection("contact")}>Contact</div>
             <div className='flex justify-center text-2xl bg-[#eb0000] w-44  cursor-pointer text-white rounded-full py-2  items-center '>Join us now</div>
         </div>
 
