@@ -1,4 +1,4 @@
-import React,{ useEffect, useRef, useState } from 'react'
+import React,{ useEffect, useRef, useState,forwardRef } from 'react'
 import section12_1 from '../assets/Images/section12_1.avif'
 import section12_2 from '../assets/Images/section12_2.avif'
 import section12_3 from '../assets/Images/section12_3.avif'
@@ -8,7 +8,7 @@ import section12_6 from '../assets/Images/section12_6.avif'
 import section12_7 from '../assets/Images/section12_7.avif'
 import { FiPhoneCall } from "react-icons/fi";
 import { GrLocation } from "react-icons/gr";
-const Section12 = () => {
+const Section12 = forwardRef((props, externalRef) =>  {
     const gyms = [
         {
           id: 1,
@@ -102,7 +102,7 @@ const Section12 = () => {
       }, []);
   return (
     <div>
-        <div className='w-full flex flex-col gap-4 mt-10'  ref={sectionRef} >
+        <div className='w-full flex flex-col gap-4 mt-10'  ref={externalRef} >
             <div style={{ fontFamily: "'Jura', sans-serif" }} className={`flex flex-col items-center gap-4 `}>
                 <div className='text-4xl text-red-600 font-extrabold'>FIND YOUR NEAREST GYM</div>
                 <div className='w-2/5 text-center text-white text-2xl'>Easily discover gyms near your location to kickstart your fitness journey today!</div>
@@ -172,6 +172,6 @@ const Section12 = () => {
         </div>
     </div>
   )
-}
+});
 
 export default Section12

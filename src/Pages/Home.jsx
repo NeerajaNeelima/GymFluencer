@@ -66,9 +66,9 @@ const Home = () => {
         <Section9 />
         <Section10 />
         <Section11 ref={section11Ref}/>
-        <Section12 />
+        <Section12 ref={section14Ref}/>
         <Section13 ref={section13Ref}/>
-        <Section14 ref={section14Ref}/>
+        <Section14 />
         <Footer/>
       </div>
     )
